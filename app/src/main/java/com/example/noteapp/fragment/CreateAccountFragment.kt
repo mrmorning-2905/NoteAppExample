@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.noteapp.databinding.CreateAccountFragmentBinding
+import com.example.noteapp.utils.FragmentUtils
 
 class CreateAccountFragment : Fragment() {
     private lateinit var binding: CreateAccountFragmentBinding
@@ -17,10 +18,10 @@ class CreateAccountFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = CreateAccountFragmentBinding.inflate(inflater, container, false)
         binding.backNavigationBtn.setOnClickListener {
-            requireActivity().supportFragmentManager.popBackStack()
+            FragmentUtils.popBackStack(requireActivity())
         }
         binding.signInBtn.setOnClickListener {
-            requireActivity().supportFragmentManager.popBackStack()
+            FragmentUtils.popBackStack(requireActivity())
         }
         return binding.root
     }

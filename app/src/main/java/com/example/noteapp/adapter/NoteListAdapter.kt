@@ -11,12 +11,23 @@ import com.example.noteapp.databinding.NoteItemBinding
 
 class NoteListAdapter : ListAdapter<Notes, NoteListAdapter.VH>(NoteItemCallback) {
 
+    private var itemClickListener: ItemClickListener? = null
+
+    fun setItemClickListener(clickListener: ItemClickListener) {
+        itemClickListener = clickListener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         return VH.from(parent)
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-        holder.bind(getItem(position))
+        getItem(position).let {noteItem ->
+            holder.bind(noteItem)
+            holder.itemView.setOnClickListener {
+                itemClickListener?.onClickItem(noteItem)
+            }
+        }
     }
 
     class VH private constructor(private val binding: NoteItemBinding) : RecyclerView.ViewHolder(binding.root) {

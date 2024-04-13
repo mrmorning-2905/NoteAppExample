@@ -16,4 +16,8 @@ object FragmentUtils {
             }
         }
     }
+
+    fun popBackStack(activity: FragmentActivity) {
+        activity.supportFragmentManager.popBackStack()
+    }
 }

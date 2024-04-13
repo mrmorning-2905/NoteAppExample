@@ -7,7 +7,7 @@ import com.example.noteapp.fragment.LoginFragment
 import com.example.noteapp.utils.FragmentUtils
 
 class LoginActivity: AppCompatActivity() {
-    private val binding by lazy { ActivityLoginBinding.inflate(layoutInflater) }
+    private val binding by lazy(LazyThreadSafetyMode.NONE) { ActivityLoginBinding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)

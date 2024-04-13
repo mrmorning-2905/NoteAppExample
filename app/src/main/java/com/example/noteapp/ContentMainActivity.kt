@@ -8,7 +8,7 @@ import com.example.noteapp.utils.FragmentUtils
 
 class ContentMainActivity : AppCompatActivity() {
 
-    private val binding by lazy { ContentMainActivityBinding.inflate(layoutInflater) }
+    private val binding by lazy(LazyThreadSafetyMode.NONE) { ContentMainActivityBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

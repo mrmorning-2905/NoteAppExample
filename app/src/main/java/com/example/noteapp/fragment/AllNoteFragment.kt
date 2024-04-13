@@ -124,7 +124,7 @@ class AllNoteFragment : Fragment() {
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 return when (menuItem.itemId) {
                     R.id.app_info -> {
-                        //open app info screen
+                        FragmentUtils.replaceFragment(requireActivity(), AppInfoFragment(), true)
                         true
                     }
                     else -> false

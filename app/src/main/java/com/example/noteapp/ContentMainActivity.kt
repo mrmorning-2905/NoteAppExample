@@ -14,7 +14,9 @@ class ContentMainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
-
+        binding.toolbar.setNavigationOnClickListener {
+            FragmentUtils.popBackStack(this)
+        }
         if (savedInstanceState == null) {
             FragmentUtils.replaceFragment(this, AllNoteFragment())
         }
